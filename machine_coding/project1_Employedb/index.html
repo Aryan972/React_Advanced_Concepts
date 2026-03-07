@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <h1>Employee Database Managment</h1>
+            <button class="addEmployee">Add Employee</button>
+        </header>
+        
+        <div class="employees">
+            <div class="employees__names">
+                <span class="employees__names--title">Employee List</span>
+                <div class="employees_names--list"></div> <!--render the name at runtime-->
+            </div>
+        
+            <div class="employees__details">
+                <span class="employees__details--title">Employee Information</span>
+                <div class="employees_details--info"></div> <!--render the json object at runtime-->
+            </div>
+        </div>
+        
+
+    </div>
+
+
+
+    <script src="./src/js/index.js"></script>
+</body>
+</html>
