@@ -6,16 +6,28 @@
     const res = await data.json();
 
     let employees = res; //array of objects
-
-    let selectedEmployee = employees[0];
     let selectedEmployeeId = employees[0].id;
+    let selectedEmployee = employees[0];
 
     const employeeList = document.querySelector(".employees_names--list");
-    const employeeInfo = document.querySelector(".employee__details");
+    const employeeInfo = document.querySelector(".employees_single--info");
 
     //ToDo: Add employee Logic
 
-    //Todo: select Employee logic
+    //Todo: select Employee logic -> use event delegation to avoid targetting individually
+    employeeList.addEventListener("click", (e) => {
+        if(e.target.tagName === "SPAN" && selectedEmployeeId !== e.target.id){
+            selectedEmployeeId = e.target.id;
+
+            // Find the selected employee
+        selectedEmployee = employees.find(
+            (emp) => emp.id == selectedEmployeeId
+        );
+        renderEmployees();
+        //render single employee details as well
+        renderSingleEmployee();
+        }
+    })
 
     //render employee
     function renderEmployees() {
@@ -35,6 +47,21 @@
     }
 
     //Todo: Render single employee
+    const renderSingleEmployee = () => {
+        //Todo: deleting employee
+        employeeInfo.innerHTML = `
+        <img src="${selectedEmployee.imageUrl}" />
+        <span class="employees--single--heading">
+        ${selectedEmployee.firstName} ${selectedEmployee.lastName} 
+        </span>
+        <span>${selectedEmployee.address}</span>
+        <span>${selectedEmployee.email}</span>
+        <span>${selectedEmployee.contactNumber}</span>
+        <span>${selectedEmployee.dob}</span>
 
+        `;
+    }
+
+    if(selectedEmployee) renderSingleEmployee();
     renderEmployees();
 })();

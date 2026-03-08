@@ -42,19 +42,19 @@ button:hover{
     width: 30%;
 }
 
-.employees__details{
+.employees__single{
     width: 70%;
 }
 
 .employees__names--title,
-.employees__details--title {
+.employees__single--title {
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
 
 .employees__names--title,
-.employees__details--title {
+.employees__single--title {
     padding-bottom: 10px;
     margin-bottom: 5px;
     text-align: center;
@@ -62,7 +62,7 @@ button:hover{
 
 }
 
-.employees__names--item {
+.employees__names--list {
     display: flex;
     flex-direction: column;
 }
@@ -78,4 +78,30 @@ button:hover{
     justify-content: space-between;
     align-items: center;
 
+}
+
+.employees__names--item:hover,
+.selected {
+    background-color: var(--btn);
+}
+
+.employees__single--heading {
+    text-align: center;
+    font-size: 25px;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.employees_single--info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.employees_single--info > img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 50%;
 }
