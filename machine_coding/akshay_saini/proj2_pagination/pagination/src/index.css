@@ -1,0 +1,25 @@
+.App {
+  font-family: sans-sarif;
+  text-align: center;
+}
+
+.product-card{
+  display: flex;
+  flex-wrap: wrap;
+  width: 210px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+
+}
+
+.product-img {
+  width: 200px;
+  height: 200px;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+}
