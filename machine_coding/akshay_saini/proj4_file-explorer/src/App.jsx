@@ -10,10 +10,36 @@ export default function App() {
 
   const [data, setData] = useState(json);
 
+  const addNodeToList = (parentId) => {
+        const name = prompt("Enter name: ");
+        const updateTree = (list) => {
+            return list.map((node) => {
+
+                if(node.id === parentId) {
+                    return {
+                        ...node,
+                        children: [
+                            ...(node.children || []),
+                            {id: "123", name : name, isFolder: true, children: []},
+                        ],
+                    };
+                }
+
+                if(node.children) {
+                    return {...node, children: updateTree(node.children)};
+                }
+                return node;
+            });
+        };
+
+        setData((prev) => updateTree(prev));
+    }
+  
+
   return (
     <div className="App">
       <h1>File Explorer</h1>
-      <List list={data}/>
+      <List list={data} addNodeToList={addNodeToList}/>
     </div>
   )
 }

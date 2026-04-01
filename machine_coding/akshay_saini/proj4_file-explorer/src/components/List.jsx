@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
-export default function List( {list} ) {
+export default function List( {list, addNodeToList} ) {
 
     const [isExpanded, setIsExpanded] = useState({});
+
+
     return (
         <div className='container'>
             {list && list.map((node) => (
@@ -19,7 +21,17 @@ export default function List( {list} ) {
                     </span>
                 )}
                 <span>{node.name}</span>
-                {isExpanded?.[node.name] && node?.children && <List list={node.children} />}
+                {node?.isFolder && (
+                    <span onClick={() => addNodeToList(node.id)}>
+                        <img
+                            src="https://uxwing.com/wp-content/themes/uxwing/download/file-and-folder-type/add-folder-icon.png"
+                            alt="icon"
+                            className="icon"
+                        />
+                    </span>
+                )}
+                {isExpanded?.[node.name] && node?.children && (
+                    <List list={node.children} addNodeToList={addNodeToList}/>)}
             </div>
             ))}
         </div>
