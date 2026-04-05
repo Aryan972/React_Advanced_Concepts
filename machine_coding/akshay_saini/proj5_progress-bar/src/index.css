@@ -1,0 +1,16 @@
+.App{
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.outer{
+  border: 1px solid black;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.inner{
+  background-color:aqua;
+}
